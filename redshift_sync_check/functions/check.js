@@ -30,13 +30,13 @@ const slack = new Slack();
 
 slack.setWebhook(process.env.SLACK_WEBHOOK);
 
+// Tables to check. Must have a `created_at` row.
 const tables = [
   'mailing',
   'user',
   'action',
   'open',
   'usermailing',
-  'actionfield',
   'click'
 ];
 
