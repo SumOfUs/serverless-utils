@@ -88,4 +88,5 @@ const checker = (tableName, _) => {
 
 module.exports.handler = (event, context, callback) => {
   tables.forEach(checker);
+  callback(null, {message: 'execution done'});
 };

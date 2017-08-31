@@ -6,7 +6,7 @@ provider:
   runtime: nodejs6.10
   region: us-west-2
   memorySize: 128
-  timeout: 10
+  timeout: 30
   environment:
     PGUSER: ${opt:pg-username}
     PGHOST: ${opt:pg-host}
