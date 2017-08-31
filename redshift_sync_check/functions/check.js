@@ -1,5 +1,23 @@
 'use strict';
 
+// To be run every hour.
+// For checking important tables on Redshift for records
+// newer than five hours. If none are found then a warning
+// message is posted to #dev_team on slack.
+//
+// See serverless.yml for event configuration.
+//
+// To deploy:
+//
+// sls invoke local \
+//   -f check \
+//   --slack-webhook WEBHOOK_URI \
+//   --pg-host HOST \
+//   --pg-username USERNAME \
+//   --pg-db DB NAME \
+//   --pg-password PASSWORD
+//
+
 // Five hours in milliseconds
 const FIVE_HOURS = 60 * 60 * 1000 * 5;
 
