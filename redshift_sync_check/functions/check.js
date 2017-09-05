@@ -47,7 +47,6 @@ Please see https://github.com/SumOfUs/redshift_management/wiki for instructions 
 Have a banana!`;
 
   slack.webhook({
-    channel: "#dev_team",
     username: "redshift_bot",
     text: message,
     icon_emoji: ':monkey_face:'
@@ -72,6 +71,7 @@ const checker = (tableName, _) => {
                FROM ak_sumofus.core_${tableName}
                WHERE created_at > '${fiveHoursAgo()}';`
 
+
   pool.query(query, (err, res) => {
     if(!err) {
       console.log(`Result for core_${tableName}: ${res.rows[0].max}`);
@@ -88,5 +88,4 @@ const checker = (tableName, _) => {
 
 module.exports.handler = (event, context, callback) => {
   tables.forEach(checker);
-  callback(null, {message: 'execution done'});
 };
